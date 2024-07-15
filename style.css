@@ -19,8 +19,24 @@ body {
     margin-top: -10px;
 }
 
+/*****************************************************************************
+ * Challenge 2: Add a CSS rule for the stats-containers.
+ *              Add flexbox to the stats-containers. 
+ *              Add CSS for both display and align-items.
+*/
 .stats-container {
     display: flex;
+    display: flexbox;
+    align-items: stretch; /*items aligned by stretching to fit container*/
+}
+
+/*****************************************************************************
+ * Challenge 2: Add a CSS rule for stats-container that sets the cursor to 
+ *              pointer and box-shadow to 0 0 30px lightblue on hover.
+*/
+.stats-container:hover { /*Better cursor visibility*/
+    cursor: pointer;
+    box-shadow: 0 0 30px lightblue; 
 }
 
 .stats-card {
