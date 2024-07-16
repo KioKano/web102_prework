@@ -48,7 +48,8 @@ function addGamesToPage(games) {
             <img class="game-img" id=${game.name + "-img"} src=${game.img} />
             <h2>${game.name}</h2>
             <h4>${game.description}</h4>
-            <p>$${game.pledged} out of $${game.goal} received from ${game.backers} backers.</p>  
+            <p>$${(game.pledged).toLocaleString("en-US")} out of $${(game.goal).toLocaleString("en-US")} </br> received from ${game.backers} backers.</p>  
+            <!-- add commas to the funding amounts --> 
 
         `;
 
@@ -156,7 +157,7 @@ const fundedBtn = document.getElementById("funded-btn");
 const allBtn = document.getElementById("all-btn");
 
 // add event listeners with the correct functions to each button
-unfundedBtn.addEventListener("click", filterUnfundedOnly);
+unfundedBtn.addEventListener("click", filterUnfundedOnly); // Change view based on mouse clicks
 fundedBtn.addEventListener("click", filterFundedOnly);
 allBtn.addEventListener("click", showAllGames);
 
@@ -169,12 +170,32 @@ allBtn.addEventListener("click", showAllGames);
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
+let unfundedGames = GAMES_JSON.reduce( (acc, game) => {
 
+    return acc + (game.pledged < game.goal ? 1 : 0); // If goal isn't met, increase variable by 1
+
+}, 0);
+
+let fundedGames = GAMES_JSON.reduce((acc, game) => {
+
+    return acc + (game.pledged >= game.goal ? 1 : 0); // If goal is met, increase variable by 1
+
+}, 0);
+
+let fundedTotal = (GAMES_JSON.reduce( (acc, game) => {
+
+    return acc + (game.pledged >= game.goal ? game.pledged : 0); // If goal is met, add pledged amount to variable
+
+}, 0)).toLocaleString("en-US"); // Add commas to the funding amount
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+// Using ternary operator to ensure statement is grammatically correct based on number of unfunded games.
+const displayString = `A total of $${fundedTotal} has been raised for ${fundedGames} games. Currently, ${unfundedGames} game${unfundedGames > 1 ? "s" : ""} remain${unfundedGames > 1 ? "" : "s"} unfunded. We need your help to fund these amazing games!`
 
 // create a new DOM element containing the template string and append it to the description container
+const p = document.createElement("p");
+p.innerHTML = displayString;
+descriptionContainer.append(p);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
