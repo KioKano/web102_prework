@@ -5,6 +5,7 @@
 */
 
 // import the JSON data about the crowd funded games from the games.js file
+import games from './games.js';
 import GAMES_DATA from './games.js';
 
 // create a list of objects to store the data about the games using JSON.parse
@@ -48,7 +49,7 @@ function addGamesToPage(games) {
             <img class="game-img" id=${game.name + "-img"} src=${game.img} />
             <h2>${game.name}</h2>
             <h4>${game.description}</h4>
-            <p>$${(game.pledged).toLocaleString("en-US")} out of $${(game.goal).toLocaleString("en-US")} </br> received from ${game.backers} backers.</p>  
+            <p>$${(game.pledged).toLocaleString("en-US")} out of $${(game.goal).toLocaleString("en-US")} </br> received from ${(game.backers).toLocaleString("en-US") } backers.</p>  
             <!-- add commas to the funding amounts --> 
 
         `;
@@ -176,21 +177,24 @@ let unfundedGames = GAMES_JSON.reduce( (acc, game) => {
 
 }, 0);
 
-let fundedGames = GAMES_JSON.reduce((acc, game) => {
+// let fundedGames = GAMES_JSON.reduce((acc, game) => {
 
-    return acc + (game.pledged >= game.goal ? 1 : 0); // If goal is met, increase variable by 1
+//     return acc + (game.pledged >= game.goal ? 1 : 0); // If goal is met, increase variable by 1
 
-}, 0);
+// }, 0);
 
-let fundedTotal = (GAMES_JSON.reduce( (acc, game) => {
+// let fundedTotal = (GAMES_JSON.reduce( (acc, game) => {
 
-    return acc + (game.pledged >= game.goal ? game.pledged : 0); // If goal is met, add pledged amount to variable
+//     return acc + (game.pledged >= game.goal ? game.pledged : 0); // If goal is met, add pledged amount to variable
 
-}, 0)).toLocaleString("en-US"); // Add commas to the funding amount
+// }, 0)).toLocaleString("en-US"); // Add commas to the funding amount
 
 // create a string that explains the number of unfunded games using the ternary operator
 // Using ternary operator to ensure statement is grammatically correct based on number of unfunded games.
-const displayString = `A total of $${fundedTotal} has been raised for ${fundedGames} games. Currently, ${unfundedGames} game${unfundedGames > 1 ? "s" : ""} remain${unfundedGames > 1 ? "" : "s"} unfunded. We need your help to fund these amazing games!`
+const displayString = `A total of $${(totalPledged).toLocaleString("en-US")} has been raised for ${GAMES_JSON.length} games. Currently, ${unfundedGames} game${unfundedGames > 1 ? "s" : ""} remain${unfundedGames > 1 ? "" : "s"} unfunded. We need your help to fund these amazing games!`
+
+// Original message focusing only on funded games; changed to mirror example.
+// const displayString = `A total of $${fundedTotal} has been raised for ${fundedGames} games. Currently, ${unfundedGames} game${unfundedGames > 1 ? "s" : ""} remain${unfundedGames > 1 ? "" : "s"} unfunded. We need your help to fund these amazing games!`
 
 // create a new DOM element containing the template string and append it to the description container
 const p = document.createElement("p");
@@ -210,7 +214,14 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
+const [firstGame, secondGame, ...otherGames] = sortedGames;
 
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const mostFunded = document.createElement("p");
+mostFunded.innerHTML = firstGame.name;
+firstGameContainer.append(mostFunded);
 
 // do the same for the runner up item
+const secondFunded = document.createElement("p");
+secondFunded.innerHTML = secondGame.name;
+secondGameContainer.append(secondFunded);
