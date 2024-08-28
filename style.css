@@ -19,10 +19,52 @@ body {
     margin-top: -10px;
 }
 
-/*****************************************************************************
- * Challenge 2: Add a CSS rule for the stats-containers.
- *              Add flexbox to the stats-containers. 
- *              Add CSS for both display and align-items.
+/* =======================================================
+    BONUS: Add CSS for navigation bar in header.
+   =======================================================
+*/
+nav {
+    display: flex;
+    background-color: lightskyblue; /*makes a sky & sea themed heading*/
+    justify-content: space-around;
+    align-items: center;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -10px;
+    min-height: fit-content;
+    overflow: hidden;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-around; /*add space between text areas and center*/
+    width: 30%;
+}
+
+.header-nav li {
+    list-style: none; /*removes bullets for list items*/
+}
+
+.header-nav a { /*restyles area links from regular text*/
+    color: black;
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 14px 16px;
+}
+
+.header-nav a:hover {
+    background-color: #ddd; /*background color of each area*/
+    color: black; /*text color black*/
+    box-shadow: 0 0 30px lightblue; /*create box shadow like in stats and games*/
+}
+
+/* =======================================================
+    Challenge 2: Add a CSS rule for the stats-containers.
+                 Add flexbox to the stats-containers.
+    	         Add CSS for both display and align-items.
+   =======================================================
 */
 .stats-container {
     display: flex;
@@ -30,9 +72,11 @@ body {
     align-items: stretch; /*items aligned by stretching to fit container*/
 }
 
-/*****************************************************************************
- * Challenge 2: Add a CSS rule for stats-container that sets the cursor to 
- *              pointer and box-shadow to 0 0 30px lightblue on hover.
+/* =======================================================
+    Challenge 2: Add a CSS rule for stats-container that 
+                 sets the cursor to pointer and box-shadow 
+                 to 0 0 30px lightblue on hover.
+   =======================================================
 */
 .stats-container:hover { /*Better cursor visibility*/
     cursor: pointer;
