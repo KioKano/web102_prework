@@ -133,3 +133,16 @@ button {
     margin: 1%;
     border-radius: 7px;
 }
+
+/* =======================================================
+    BONUS: Add CSS for footer.
+   =======================================================
+*/
+footer{
+    text-align: center;
+    font-size: 1em;
+    margin-top: 1%;
+    border-top: 3px solid lightslategray;
+    clear: both;
+    padding-bottom: 20px;
+}
