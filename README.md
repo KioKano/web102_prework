@@ -4,7 +4,7 @@ Submitted by: **Kionna Kanoyton**
 
 **Sea Monster Crowdfunding** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **05:22:40** hours spent in total
+Time spent: **05:22:40** spent in total
 
 ## Required Features
 
@@ -23,18 +23,18 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/a/codepath-web102-prework-sea-monster-crowdfunding-HeOXX1q' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+GIF created with [ScreenToGif](https://www.screentogif.com/) for Windows
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+I enjoyed refreshing my memory on how to make buttons work and the logic behind them, i.e., using the deleteChildElements function. Second, there were a few operators and functions that I have not had previous experience with that I had to do further reading and practice code.
+
+Additionally, I would like to add a few more features:
+(1) Working search bar using fuzzy search
+(2) Responsive site that adjusts itself based on the user's screen
+(3) Area to pledge money to a currently unfunded game with updates to the stats
 
 ## License
 
