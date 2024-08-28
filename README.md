@@ -1,10 +1,10 @@
-# WEB102 Prework - *The Kraken's Den*
+# WEB102 Prework - *Sea Monster Crowdfunding*
 
 Submitted by: **Kionna Kanoyton**
 
-**The Kraken's Den** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
+**Sea Monster Crowdfunding** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
-Time spent: **** hours spent in total
+Time spent: **05:22:40** hours spent in total
 
 ## Required Features
 
@@ -18,7 +18,6 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [X] The nav bar that allows the user to get between sections quickly, such as the Our Game section.
-* [ ] List anything else that you can get done to improve the app functionality!
 
 ## Video Walkthrough
 
